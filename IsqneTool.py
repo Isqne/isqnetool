@@ -10,6 +10,15 @@ from colorama import Fore
 from requests.api import request
 
 # Banner's...
+BannerMenu = (f'''
+    {Fore.LIGHTBLUE_EX}     ___                         _______             __ 
+        |   .-----.-----.-----.-----|       .-----.-----|  |
+        |.  |__ --|  _  |     |  -__|.|   | |  _  |  _  |  |
+        |.  |_____|__   |__|__|_____`-|.  |-|_____|_____|__|
+        |:  |        |__|             |:  |                 
+        |::.|                         |::.|                 
+        `---'                         `---'{Fore.LIGHTWHITE_EX}
+    ''')
 bannercpf= ('''
       _____                   ____       ________  ____
      / ___/__  ___  ___ __ __/ / /____ _/ ___/ _ \/ __/
@@ -53,6 +62,7 @@ bannernum = ('''
     ''')
 # Menu inicial...
 def menu():
+    print(BannerMenu)
     print(f'''
     {Fore.LIGHTCYAN_EX}╔═══════════════════════════╗
     ║{Fore.LIGHTWHITE_EX}Ferramenta criada por Isqne{Fore.LIGHTCYAN_EX}║
@@ -64,10 +74,15 @@ def menu():
     3 - Consulta CNPJ
     4 - Consulta Placa {Fore.LIGHTRED_EX}[OFF]{Fore.LIGHTWHITE_EX}
     5 - Consulta Bin
-    6 - Consulta Num {Fore.LIGHTMAGENTA_EX}[Simples]{Fore.LIGHTWHITE_EX}
-    7 - Consulta CC {Fore.LIGHTMAGENTA_EX}[Somente os numeros da {Fore.LIGHTRED_EX}CC{Fore.LIGHTMAGENTA_EX}]{Fore.LIGHTWHITE_EX}
+    6 - Consulta Numero {Fore.LIGHTRED_EX}[OFF]{Fore.LIGHTWHITE_EX}
+    7 - Checker CC 
+    {Fore.LIGHTRED_EX}0 - Fechar{Fore.LIGHTWHITE_EX}
     ''')
     inputt = input('-~= ')
+    if inputt == '0' or inputt == '00':
+        print('')
+        os.system('cls')
+        exit()
     if inputt == '1' or inputt == '01':
         print('')
         consultacep()
@@ -89,6 +104,9 @@ def menu():
     if inputt == '7' or inputt == '07':
         print('')
         checkercc()
+    if inputt == '0' or inputt == '00':
+        os.system('cls')
+        exit()
     else:
         print('')
         error404()
@@ -185,6 +203,7 @@ def consultacnpj():
     os.system('cls')
     menu()
 def consultaplaca():
+    print(bannerplaca)
     os.system('cls')
     print("error 404")
     print('')
@@ -209,18 +228,14 @@ def consultabin():
 def consultanum():
     os.system('cls')
     print(consultanum)
-    print("Não está disponivel"
-    time.sleep(1.5)
-    os.system('cls')
-    menu()
-    numero = input('Digite o numero: ')
+    num = input('Digite o numero: ')
+    numss = request.get(f'perr0ni.xyz/resultado?cel={num}')
+    result = (numss.text)
     Spinner()
     print('Encontrado!')
-    print('')
     print('Dados coletados...')
-    print('')
     print('-============///////=============-')
-    print(  )
+    print( result )
     print('-============///////=============-')
     time.sleep(5.0)
     os.system('cls')
@@ -228,11 +243,15 @@ def consultanum():
 def checkercc():
     os.system('cls')
     print()
-    cc = input('Digite sua cc: ')
-    checker = requests.get(f'{cc}')
-    result = json.loads(checker).json()
+    print('Formato checker ( NumeroCC|Mes|Ano|CCV )')
+    cc = input('Digite sua CC: ')
+    url = requests.get(f'https://laganty.ml/.rest/chknet.php?cc={cc}')
+    json.loads(url).json()
     Spinnercc()
-    print(result)
+    print(f''' 
+    
+    
+    ''')
     time.sleep(5.0)
     os.system('cls')
     menu()
@@ -247,9 +266,9 @@ def error404():
 #=-={-=-}-=-=#
 # Spinner's 
 def Spinnerinicio():
-	l = ['-', 'o', '0',]
+	l = ['--', '><', '<>',]
 	for i in l+l+l:
-		sys.stdout.write('\r''[*] Consultando..'+i)
+		sys.stdout.write('\r''[*] Iniciando' +i)
 		sys.stdout.flush()
 		time.sleep(0.3)
 def Spinner():
@@ -268,7 +287,6 @@ def Spinnercc():
 # Iniciar menu...
 os.system('cls')
 Spinnerinicio()
+os.system('cls')
+os.system('title IsqneTool Verção 1.0! {-=-} Puxando até tua alma')
 menu()
-
-
-# 
