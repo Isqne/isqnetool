@@ -27,9 +27,9 @@ Instalação em Prompt De Comando
 ```
 C:\Users\Você> git clone https://github.com/Isqne/isqnetool.git
 
-C:\Users\É> pip install -r requirements.txt
+C:\Users\É> cd isqnetool
 
-C:\Users\Muito> cd isqnetool
+C:\Users\Muito> pip install -r requirements.txt  
 
 C:\Users\Especial> python IsqneTool.py
 ```
