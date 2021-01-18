@@ -20,8 +20,6 @@ $ cd isqnetool
 $ python IsqneTool.py
 ```
 
-### Logo após selecione uma opção e pronto!
-
 Instalação em Prompt De Comando
 
 ```
