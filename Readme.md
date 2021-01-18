@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="https://github.com/Isqne/isqnetool">Isqne Tool</a>
+    <a href="https://github.com/Isqne/isqnetool">Isqne Tool🔨</a>
 </h1>
 <img src="https://img.shields.io/github/stars/Isqne/isqnetool?color=000000&logo=github&style=for-the-badge">
 
