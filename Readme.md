@@ -1,6 +1,9 @@
 <h1 align="center">
     <a href="https://github.com/Isqne/isqnetool">Isqne Tool🔨</a>
 </h1>
+<h2 align="center">
+    <img src="https://cdn.discordapp.com/attachments/795035459402465291/800900676645158922/AmAPlvwJYxSo4AAAAASUVORK5CYII.png">
+</h2>
 <img src="https://img.shields.io/github/stars/Isqne/isqnetool?color=000000&logo=github&style=for-the-badge">
 
 ### Verção 1.0
